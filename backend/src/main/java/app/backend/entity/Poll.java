@@ -1,6 +1,6 @@
 package app.backend.entity;
 
-import app.backend.model.MusicalGenre;
+import app.backend.model.MusicGenre;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -20,7 +20,7 @@ public class Poll {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private MusicalGenre musicalGenre;
+    private MusicGenre musicalGenre;
 
     @CreationTimestamp
     private Instant createdOn;

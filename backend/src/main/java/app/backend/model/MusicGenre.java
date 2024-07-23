@@ -3,7 +3,7 @@ package app.backend.model;
 import lombok.Getter;
 
 @Getter
-public enum MusicalGenre {
+public enum MusicGenre {
     ROCK("ROCK"),
     POP("POP"),
     JAZZ("JAZZ"),
@@ -19,7 +19,7 @@ public enum MusicalGenre {
 
     private final String displayName;
 
-    MusicalGenre(String displayName) {
+    MusicGenre(String displayName) {
         this.displayName = displayName;
     }
 

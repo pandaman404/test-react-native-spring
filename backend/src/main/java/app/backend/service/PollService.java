@@ -1,7 +1,6 @@
 package app.backend.service;
 
 import app.backend.entity.Poll;
-import app.backend.model.MusicalGenre;
 import app.backend.repository.PollRepository;
 import app.backend.response.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
