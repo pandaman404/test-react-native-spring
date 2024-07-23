@@ -1,20 +1,27 @@
-import { UseFormSetValue } from 'react-hook-form';
+import { FieldValues, UseFormSetValue, Path } from 'react-hook-form';
 import { StyleSheet, Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 
-interface SelectFieldProps {
-  setValue: any;
+interface SelectFieldProps<T extends FieldValues> {
+  name: Path<T>;
+  setValue: UseFormSetValue<T>;
   items: { label: string; value: string }[];
   placeholder: string;
   error?: string;
 }
 
-export default function SelectField({ items, setValue, placeholder, error }: SelectFieldProps) {
+export default function SelectField<T extends FieldValues>({
+  items,
+  name,
+  setValue,
+  placeholder,
+  error,
+}: SelectFieldProps<T>) {
   return (
     <View style={styles.container}>
       <RNPickerSelect
         onValueChange={(value) => {
-          setValue('musicalGenre', value);
+          setValue(name, value);
         }}
         items={items}
         placeholder={{

@@ -9,7 +9,7 @@ interface InputFieldProps {
   error?: string;
 }
 
-export default function InputField({ value, onChange, onBlur, placeholder, error }: InputFieldProps) {
+export default function TextField({ value, onChange, onBlur, placeholder, error }: InputFieldProps) {
   return (
     <View style={styles.container}>
       <TextInput placeholder={placeholder} onBlur={onBlur} onChangeText={onChange} value={value} style={styles.input} />

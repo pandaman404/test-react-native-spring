@@ -1,33 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import GoBackBtn from '../../components/GoBackBtn';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import SelectField from '../../components/SelectField';
 import { mapEnumToOptions } from '../../utils/mapEnumToOptions';
 import { MusicGenre } from '../../@types/MusicGenre.enum';
-import InputField from '../../components/InputField';
+import TextField from '../../components/TextField';
 import PressBtn from '../../components/PressBtn';
-
-type FormData = {
-  musicalGenre: string;
-  email: string;
-};
+import { useHandlePollForm } from '../../hooks/useHandlePollForm';
 
 export default function Poll() {
-  const {
-    control,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm<FormData>({
-    defaultValues: {
-      musicalGenre: '',
-      email: '',
-    },
-  });
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
-  };
+  const { control, handleSubmit, setValue, errors, onSubmit } = useHandlePollForm();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -36,26 +19,21 @@ export default function Poll() {
         <Text style={styles.title}>Encuesta</Text>
         <Controller
           control={control}
-          rules={{
-            required: true,
-          }}
           render={() => (
             <SelectField
+              name='musicGenre'
               setValue={setValue}
               items={mapEnumToOptions(MusicGenre)}
-              placeholder='Seleccione un estilo músical'
-              error={errors.musicalGenre?.message}
+              placeholder='Seleccione estilo músical'
+              error={errors.musicGenre?.message}
             />
           )}
-          name='musicalGenre'
+          name='musicGenre'
         />
         <Controller
           control={control}
-          rules={{
-            required: true,
-          }}
           render={({ field: { onChange, onBlur, value } }) => (
-            <InputField
+            <TextField
               value={value}
               onChange={onChange}
               onBlur={onBlur}
