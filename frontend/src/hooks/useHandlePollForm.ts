@@ -9,7 +9,7 @@ interface FormData {
 
 const schema = object({
   musicGenre: string().required('Estilo músical es requerido'),
-  email: string().email('Ingrese un formato de correo valido').required('Correo es requerido'),
+  email: string().email('Formato de correo invalido').required('Correo es requerido'),
 });
 
 export function useHandlePollForm() {

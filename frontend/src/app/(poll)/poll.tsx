@@ -3,7 +3,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import GoBackBtn from '../../components/GoBackBtn';
 import { Controller } from 'react-hook-form';
 import SelectField from '../../components/SelectField';
-import { mapEnumToOptions } from '../../utils/mapEnumToOptions';
+import { mapEnumToOptions } from '../../utility/mapEnumToOptions';
 import { MusicGenre } from '../../@types/MusicGenre.enum';
 import TextField from '../../components/TextField';
 import PressBtn from '../../components/PressBtn';

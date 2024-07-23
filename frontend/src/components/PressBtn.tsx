@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text } from 'react-native';
 
 interface FormBtnProps {
   title: string;
@@ -8,6 +8,7 @@ interface FormBtnProps {
 export default function PressBtn({ title, onPress }: FormBtnProps) {
   return (
     <Pressable style={styles.container} onPress={onPress}>
+      {/* <ActivityIndicator size='small' color='#ffffff' /> */}
       <Text style={styles.title}>{title}</Text>
     </Pressable>
   );
@@ -15,9 +16,9 @@ export default function PressBtn({ title, onPress }: FormBtnProps) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FCA311',
+    backgroundColor: '#14213d',
+    height: 50,
     width: '100%',
-    paddingVertical: 20,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
