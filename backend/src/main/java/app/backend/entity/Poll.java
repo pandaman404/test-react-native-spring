@@ -20,7 +20,7 @@ public class Poll {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private MusicGenre musicalGenre;
+    private MusicGenre musicGenre;
 
     @CreationTimestamp
     private Instant createdOn;

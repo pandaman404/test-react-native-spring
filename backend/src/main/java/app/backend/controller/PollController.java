@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("api/v1")
 @RestController
 public class PollController {
@@ -19,6 +20,7 @@ public class PollController {
 
     @PostMapping(value = "/poll", consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<Object> addPoll(@RequestBody Poll poll) {
+
         return pollService.createPoll(poll);
     }
 }

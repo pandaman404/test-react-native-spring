@@ -10,12 +10,15 @@ public class ResponseHandler {
 
     public static ResponseEntity<Object> responseBuilder(
             HttpStatus status,
+            String message,
             Object data
     ){
         Map<String, Object> response = new HashMap<>();
 
         response.put("code", status.value());
-        response.put("data", data);
+        if(message != null) response.put("message", message);
+        if(data != null) response.put("message", data);
+
         return new ResponseEntity<>(response, status);
     }
 }
