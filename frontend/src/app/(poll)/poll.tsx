@@ -8,9 +8,10 @@ import { MusicGenre } from '../../@types/MusicGenre.enum';
 import TextField from '../../components/TextField';
 import PressBtn from '../../components/PressBtn';
 import { useHandlePollForm } from '../../hooks/useHandlePollForm';
+import { Colors } from '../../constants/colors';
 
 export default function Poll() {
-  const { control, handleSubmit, setValue, errors, onSubmit } = useHandlePollForm();
+  const { control, handleSubmit, errors, onSubmit, isSubmitting, remoteErrorMessage } = useHandlePollForm();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,10 +20,9 @@ export default function Poll() {
         <Text style={styles.title}>Encuesta</Text>
         <Controller
           control={control}
-          render={() => (
+          render={({ field: { onChange } }) => (
             <SelectField
-              name='musicGenre'
-              setValue={setValue}
+              onChange={onChange}
               items={mapEnumToOptions(MusicGenre)}
               placeholder='Seleccione estilo músical'
               error={errors.musicGenre?.message}
@@ -43,7 +43,8 @@ export default function Poll() {
           )}
           name='email'
         />
-        <PressBtn title='Enviar' onPress={handleSubmit(onSubmit)} />
+        <PressBtn title='Enviar' onPress={handleSubmit(onSubmit)} isLoading={isSubmitting} />
+        <View>{remoteErrorMessage.length > 0 && <Text style={styles.errorMessage}>{remoteErrorMessage}</Text>}</View>
       </View>
     </SafeAreaView>
   );
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     gap: 40,
-    backgroundColor: '#fffff',
+    backgroundColor: Colors.white,
   },
   formContainer: {
     justifyContent: 'center',
@@ -69,11 +70,15 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 2,
     marginBottom: 20,
-    color: '#000000',
+    color: Colors.black,
     borderBottomWidth: 0.25,
-    borderBottomColor: 'gray',
+    borderBottomColor: Colors.gray,
     width: '100%',
     textAlign: 'center',
     paddingBottom: 5,
+  },
+  errorMessage: {
+    color: Colors.red,
+    fontSize: 12,
   },
 });

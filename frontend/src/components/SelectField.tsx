@@ -1,27 +1,20 @@
-import { FieldValues, UseFormSetValue, Path } from 'react-hook-form';
 import { StyleSheet, Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+import { Colors } from '../constants/colors';
 
-interface SelectFieldProps<T extends FieldValues> {
-  name: Path<T>;
-  setValue: UseFormSetValue<T>;
+interface SelectFieldProps {
+  onChange: (...event: any[]) => void;
   items: { label: string; value: string }[];
   placeholder: string;
   error?: string;
 }
 
-export default function SelectField<T extends FieldValues>({
-  items,
-  name,
-  setValue,
-  placeholder,
-  error,
-}: SelectFieldProps<T>) {
+export default function SelectField({ items, onChange, placeholder, error }: SelectFieldProps) {
   return (
     <View style={styles.container}>
       <RNPickerSelect
         onValueChange={(value) => {
-          setValue(name, value);
+          onChange(value);
         }}
         items={items}
         placeholder={{
@@ -38,14 +31,14 @@ export default function SelectField<T extends FieldValues>({
 const pickerSelectStyles = StyleSheet.create({
   viewContainer: {
     borderWidth: 0.5,
-    borderColor: 'gray',
+    borderColor: Colors.gray,
     width: '100%',
     alignSelf: 'center',
     borderRadius: 5,
     marginBottom: 0,
   },
   placeholder: {
-    color: 'gray',
+    color: Colors.gray,
   },
 });
 
@@ -54,7 +47,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   textError: {
-    color: 'red',
+    color: Colors.red,
     fontSize: 12,
     marginTop: 5,
   },

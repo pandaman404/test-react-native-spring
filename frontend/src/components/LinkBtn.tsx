@@ -1,5 +1,6 @@
 import { Text, Pressable, StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
+import { Colors } from '../constants/colors';
 
 interface LinkBtnProps {
   pathname: string;
@@ -27,13 +28,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     alignItems: 'center',
     width: '50%',
-    backgroundColor: '#14213d',
+    backgroundColor: Colors.blue,
     alignSelf: 'center',
     borderRadius: 30,
   },
   text: {
     fontWeight: '500',
-    color: 'white',
+    color: Colors.white,
     textTransform: 'uppercase',
     fontSize: 14,
     letterSpacing: 1,

@@ -1,13 +1,14 @@
 import { Text, Pressable, StyleSheet } from 'react-native';
 import { useNavigation } from 'expo-router';
 import { AntDesign } from '@expo/vector-icons';
+import { Colors } from '../constants/colors';
 
 export default function GoBackBtn() {
   const navigation = useNavigation();
 
   return (
     <Pressable style={styles.container} onPress={() => navigation.goBack()}>
-      <AntDesign name='caretleft' size={16} color='#000000' />
+      <AntDesign name='caretleft' size={16} color={Colors.black} />
       <Text style={styles.text}>Regresar</Text>
     </Pressable>
   );
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
   },
   text: {
     marginLeft: 10,
-    color: '#000000',
+    color: Colors.black,
     fontSize: 16,
     fontWeight: 'bold',
   },

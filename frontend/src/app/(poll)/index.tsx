@@ -3,6 +3,7 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import LinkBtn from '../../components/LinkBtn';
 import Logo from '../../components/Logo';
+import { Colors } from '../../constants/colors';
 
 export default function index() {
   return (
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 80,
     paddingVertical: 100,
-    backgroundColor: '#fffff',
+    backgroundColor: Colors.white,
   },
   linksContainer: {
     justifyContent: 'center',
