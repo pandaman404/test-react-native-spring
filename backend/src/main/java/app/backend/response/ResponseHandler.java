@@ -17,7 +17,7 @@ public class ResponseHandler {
 
         response.put("code", status.value());
         if(message != null) response.put("message", message);
-        if(data != null) response.put("message", data);
+        if(data != null) response.put("data", data);
 
         return new ResponseEntity<>(response, status);
     }
