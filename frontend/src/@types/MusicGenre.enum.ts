@@ -3,7 +3,7 @@ export enum MusicGenre {
   POP = 'POP',
   JAZZ = 'JAZZ',
   CLASSICAL = 'CLASSICAL',
-  HIP_HOP = 'HIP HOP',
+  HIP_HOP = 'HIP_HOP',
   REGGAE = 'REGGAE',
   BLUES = 'BLUES',
   ELECTRONIC = 'ELECTRONIC',
