@@ -1,6 +1,7 @@
 import { Text, Pressable, StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
 import { Colors } from '../constants/colors';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationProps } from '../@types/AppStackNavigator';
 
 interface LinkBtnProps {
   pathname: string;
@@ -8,17 +9,11 @@ interface LinkBtnProps {
 }
 
 export default function LinkBtn({ pathname, text }: LinkBtnProps) {
+  const navigation = useNavigation<NavigationProps>();
   return (
-    <Link
-      asChild
-      href={{
-        pathname,
-      }}
-    >
-      <Pressable style={styles.container}>
-        <Text style={styles.text}>{text}</Text>
-      </Pressable>
-    </Link>
+    <Pressable style={styles.container} onPress={() => navigation.navigate('Poll')}>
+      <Text style={styles.text}>{text}</Text>
+    </Pressable>
   );
 }
 

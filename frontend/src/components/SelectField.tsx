@@ -1,5 +1,5 @@
-import { StyleSheet, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+import { StyleSheet, View } from 'react-native';
 import { Colors } from '../constants/colors';
 import ErrorMessage from './ErrorMessage';
 

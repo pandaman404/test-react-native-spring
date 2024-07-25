@@ -1,20 +1,20 @@
-import { StyleSheet, View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import GoBackBtn from '../../components/GoBackBtn';
+import GoBackBtn from '../components/GoBackBtn';
+import Title from '../components/Title';
 import { Controller } from 'react-hook-form';
-import SelectField from '../../components/SelectField';
-import { mapEnumToOptions } from '../../utility/mapEnumToOptions';
-import { MusicGenre } from '../../@types/MusicGenre.enum';
-import TextField from '../../components/TextField';
-import PressBtn from '../../components/PressBtn';
-import { useHandlePollForm } from '../../hooks/useHandlePollForm';
-import { Colors } from '../../constants/colors';
-import Title from '../../components/Title';
-import ErrorMessage from '../../components/ErrorMessage';
+import SelectField from '../components/SelectField';
+import TextField from '../components/TextField';
+import PressBtn from '../components/PressBtn';
+import ErrorMessage from '../components/ErrorMessage';
+import { mapEnumToOptions } from '../utility/mapEnumToOptions';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { MusicGenre } from '../@types/MusicGenre.enum';
+import { useHandlePollForm } from '../hooks/useHandlePollForm';
 
-export default function Poll() {
+export default function PollScreen() {
   const { control, handleSubmit, errors, onSubmit, isSubmitting, remoteErrorMessage } = useHandlePollForm();
-
   return (
     <SafeAreaView style={styles.container}>
       <GoBackBtn />

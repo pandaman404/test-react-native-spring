@@ -1,13 +1,13 @@
-import { ActivityIndicator, StyleSheet, View, Text } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { Colors } from '../constants/colors';
+import { useHandleResultsChart } from '../hooks/useHandleResultsChart';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import GoBackBtn from '../../components/GoBackBtn';
-import { Colors } from '../../constants/colors';
-import Title from '../../components/Title';
-import { useHandleResultsChart } from '../../hooks/useHandleResultsChart';
-import CustomPieChart from '../../components/CustomPieChart';
-import ErrorMessage from '../../components/ErrorMessage';
+import GoBackBtn from '../components/GoBackBtn';
+import Title from '../components/Title';
+import CustomPieChart from '../components/CustomPieChart';
+import ErrorMessage from '../components/ErrorMessage';
 
-export default function Results() {
+export default function ResultsScreen() {
   const { chartData, isLoading, errorMessage } = useHandleResultsChart();
 
   return (

@@ -1,11 +1,10 @@
-import { StyleSheet, View } from 'react-native';
-import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import LinkBtn from '../../components/LinkBtn';
-import Logo from '../../components/Logo';
-import { Colors } from '../../constants/colors';
+import Logo from '../components/Logo';
+import LinkBtn from '../components/LinkBtn';
+import { Colors } from '../constants/colors';
 
-export default function index() {
+export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View>
