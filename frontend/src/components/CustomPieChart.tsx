@@ -7,7 +7,7 @@ interface CustomPieChartProps {
 
 export default function CustomPieChart({ pieData }: CustomPieChartProps) {
   return (
-    <PieChart style={{ width: 250, height: 250 }} data={pieData}>
+    <PieChart style={{ width: 300, height: 300 }} data={pieData}>
       <LabelsPieChart />
     </PieChart>
   );

@@ -60,7 +60,6 @@ export function useHandleResultsChart() {
 
   const mapPollsToPieChartData = (data: Poll[]): PieChartData[] => {
     const results = mapPollsToResults(data);
-    console.log(results);
     const chartData = mapPieChartData(results);
     return chartData;
   };

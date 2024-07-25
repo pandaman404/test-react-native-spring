@@ -11,8 +11,8 @@ export default function HomeScreen() {
         <Logo />
       </View>
       <View style={styles.linksContainer}>
-        <LinkBtn text='Encuesta' pathname='/poll' />
-        <LinkBtn text='Resultados' pathname='/results' />
+        <LinkBtn text='Encuesta' pathname='Poll' />
+        <LinkBtn text='Resultados' pathname='Results' />
       </View>
     </SafeAreaView>
   );

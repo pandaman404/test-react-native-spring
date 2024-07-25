@@ -11,7 +11,7 @@ interface LinkBtnProps {
 export default function LinkBtn({ pathname, text }: LinkBtnProps) {
   const navigation = useNavigation<NavigationProps>();
   return (
-    <Pressable style={styles.container} onPress={() => navigation.navigate('Poll')}>
+    <Pressable style={styles.container} onPress={() => navigation.navigate(pathname)}>
       <Text style={styles.text}>{text}</Text>
     </Pressable>
   );

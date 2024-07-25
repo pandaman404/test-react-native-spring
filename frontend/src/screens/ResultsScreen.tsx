@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: '75%',
     alignItems: 'center',
+    gap: 50,
   },
   noResultsText: {
     color: Colors.black,

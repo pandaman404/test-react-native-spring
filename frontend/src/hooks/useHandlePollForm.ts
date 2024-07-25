@@ -8,6 +8,8 @@ import { emailPattern } from '../constants/validator-patterns';
 import { useState } from 'react';
 import { HttpStatusCode } from 'axios';
 import { Keyboard } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationProps } from '../@types/AppStackNavigator';
 
 interface FormData {
   musicGenre: string;
@@ -29,6 +31,7 @@ export function useHandlePollForm() {
     resolver: yupResolver(schema),
   });
   const [remoteErrorMessage, setRemoteErrorMessage] = useState<string>('');
+  const navigation = useNavigation<NavigationProps>();
 
   const onSubmit = async (data: FormData) => {
     Keyboard.dismiss();
@@ -46,6 +49,7 @@ export function useHandlePollForm() {
         const res = await createPoll(newPoll);
         if (res.code === HttpStatusCode.Created) {
           reset();
+          navigation.navigate('Results');
         }
       }
     } catch (error) {
