@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import GoBackBtn from '../../components/GoBackBtn';
 import { Controller } from 'react-hook-form';
@@ -9,6 +9,8 @@ import TextField from '../../components/TextField';
 import PressBtn from '../../components/PressBtn';
 import { useHandlePollForm } from '../../hooks/useHandlePollForm';
 import { Colors } from '../../constants/colors';
+import Title from '../../components/Title';
+import ErrorMessage from '../../components/ErrorMessage';
 
 export default function Poll() {
   const { control, handleSubmit, errors, onSubmit, isSubmitting, remoteErrorMessage } = useHandlePollForm();
@@ -17,7 +19,7 @@ export default function Poll() {
     <SafeAreaView style={styles.container}>
       <GoBackBtn />
       <View style={styles.formContainer}>
-        <Text style={styles.title}>Encuesta</Text>
+        <Title text='Encuesta' />
         <Controller
           control={control}
           render={({ field: { onChange } }) => (
@@ -44,7 +46,7 @@ export default function Poll() {
           name='email'
         />
         <PressBtn title='Enviar' onPress={handleSubmit(onSubmit)} isLoading={isSubmitting} />
-        <View>{remoteErrorMessage.length > 0 && <Text style={styles.errorMessage}>{remoteErrorMessage}</Text>}</View>
+        <View>{remoteErrorMessage.length > 0 && <ErrorMessage text={remoteErrorMessage} />}</View>
       </View>
     </SafeAreaView>
   );
@@ -63,22 +65,5 @@ const styles = StyleSheet.create({
     width: '75%',
     alignSelf: 'center',
     position: 'relative',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    letterSpacing: 2,
-    marginBottom: 20,
-    color: Colors.black,
-    borderBottomWidth: 0.25,
-    borderBottomColor: Colors.gray,
-    width: '100%',
-    textAlign: 'center',
-    paddingBottom: 5,
-  },
-  errorMessage: {
-    color: Colors.red,
-    fontSize: 12,
   },
 });

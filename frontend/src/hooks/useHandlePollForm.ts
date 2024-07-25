@@ -51,7 +51,6 @@ export function useHandlePollForm() {
     } catch (error) {
       if (error instanceof Error) {
         setRemoteErrorMessage(error.message);
-        console.log('catch onsubmit');
       }
     }
   };

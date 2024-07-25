@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { Colors } from '../constants/colors';
+import ErrorMessage from './ErrorMessage';
 
 interface SelectFieldProps {
   onChange: (...event: any[]) => void;
@@ -23,7 +24,7 @@ export default function SelectField({ items, onChange, placeholder, error }: Sel
         }}
         style={pickerSelectStyles}
       />
-      {error && <Text style={styles.textError}>{error}</Text>}
+      {error && <ErrorMessage text={error} />}
     </View>
   );
 }
@@ -45,10 +46,5 @@ const pickerSelectStyles = StyleSheet.create({
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-  },
-  textError: {
-    color: Colors.red,
-    fontSize: 12,
-    marginTop: 5,
   },
 });

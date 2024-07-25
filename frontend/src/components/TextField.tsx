@@ -1,6 +1,7 @@
 import { Noop } from 'react-hook-form';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
 import { Colors } from '../constants/colors';
+import ErrorMessage from './ErrorMessage';
 
 interface InputFieldProps {
   value: string;
@@ -21,7 +22,7 @@ export default function TextField({ value, onChange, onBlur, placeholder, error 
         style={styles.input}
         placeholderTextColor={Colors.gray}
       />
-      {error && <Text style={styles.textError}>{error}</Text>}
+      {error && <ErrorMessage text={error} />}
     </View>
   );
 }
@@ -36,10 +37,5 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 15,
     borderRadius: 5,
-  },
-  textError: {
-    color: Colors.red,
-    fontSize: 12,
-    marginTop: 5,
   },
 });
