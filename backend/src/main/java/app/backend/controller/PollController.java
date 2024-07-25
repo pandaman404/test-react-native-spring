@@ -20,7 +20,6 @@ public class PollController {
 
     @PostMapping(value = "/poll", consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<Object> addPoll(@RequestBody Poll poll) {
-
         return pollService.createPoll(poll);
     }
 }
